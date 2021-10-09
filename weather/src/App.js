@@ -22,15 +22,17 @@ const App = () => {
     setCity("");
   };
   return (
-    <div>
+    <div className="main">
+      <center>
           <div className="card">
-                <h1>Weather App</h1>
+                <h1 id="heading">Weather App</h1>
                 <form onSubmit={submitHandler}>
                   <input type="text" name="city" value={city} onChange={Getcity}/><br/><br/>
                   <input type="submit" value="Get the Temperature"/>
                 </form>
                 <h1>{res}</h1>
           </div>
+          </center>
     </div>
   )
 }

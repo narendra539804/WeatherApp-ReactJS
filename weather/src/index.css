@@ -11,9 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+.main{
+  background-color: cadetblue;
+  height: 100vh;
+  width: 100%;
+}
+#heading{
+  
+  color:whitesmoke;
+  height: 50%;
+  width: 50%;
+}
 .card {
   padding:70px;
+  height: 50%;
+  width: 50%;
+  background-color:crimson;
 }
 input[type="submit"]
 {
@@ -24,4 +37,5 @@ input[type="submit"]
 input[type="text"]{
   padding: 10px;
   border-radius: 5px;
+  background-color:lightsteelblue;
 }
