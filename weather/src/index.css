@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.card {
+  padding:70px;
+}
+input[type="submit"]
+{
+  background-color: aquamarine;
+  padding: 10px;
+  border-radius: 5px;
+}
+input[type="text"]{
+  padding: 10px;
+  border-radius: 5px;
+}

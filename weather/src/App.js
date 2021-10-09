@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+//jshint esversion:6
+import React,{useState} from 'react'
 
-function App() {
+const App = () => {
+  const [city,setCity]=useState("");
+  const Getcity= e =>{
+    setCity(e.target.value);
+  };
+  const submitHandler = e =>{
+    e.preventDefault();
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=6e8ff37d2504eea171aca23fa988d3e5`).
+    then(
+      response=> response.json()).
+      then( data =>{
+        const kelvin=data.main.temp;
+        const celsius=kelvin-273.15;
+        console.log(celsius);}
+        );
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+          <div className="card">
+                <h1>Weather App</h1>
+                <form onSubmit={submitHandler}>
+                  <input type="text" name="city" value={city} onChange={Getcity}/><br/><br/>
+                  <input type="submit" value="Get the Temperature"/>
+                </form>
+          </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
