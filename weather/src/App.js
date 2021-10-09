@@ -1,8 +1,10 @@
 //jshint esversion:6
-import React,{useState} from 'react'
+import React,{useState} from 'react';
 
 const App = () => {
+
   const [city,setCity]=useState("");
+  const [res,setres]=useState("");
   const Getcity= e =>{
     setCity(e.target.value);
   };
@@ -13,9 +15,11 @@ const App = () => {
       response=> response.json()).
       then( data =>{
         const kelvin=data.main.temp;
-        const celsius=kelvin-273.15;
-        console.log(celsius);}
-        );
+        const celcius=kelvin-273.15;
+        setres("Temperature at "+city+"\n"+Math.round(celcius)+"°C");
+      }
+    ).catch(error => console.log(error))
+    setCity("");
   };
   return (
     <div>
@@ -25,6 +29,7 @@ const App = () => {
                   <input type="text" name="city" value={city} onChange={Getcity}/><br/><br/>
                   <input type="submit" value="Get the Temperature"/>
                 </form>
+                <h1>{res}</h1>
           </div>
     </div>
   )
